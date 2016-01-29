@@ -76,6 +76,13 @@ $(function() {
             menuIcon.click();
             expect($('body').hasClass('menu-hidden')).toBe(true);
           });
+
+          it('is hidden when link in feedList is clicked', function() {
+            $('body').toggleClass('menu-hidden');
+            var feedList = $('.feed-list');
+            feedList.find('a').first().click();
+            expect($('body').hasClass('menu-hidden')).toBe(true);
+          });
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
