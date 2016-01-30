@@ -76,15 +76,21 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * loadFeed() is asynchronous.
          */
-        var content = $('.feed').find('h2').first().text();
+        var content, newContent;
+
         beforeEach(function(done) {
-            loadFeed(1, function() {
-                done();
+            loadFeed(0, function() { // load 1st time
+                content = $('.feed').text(); // get 1st content when 1st load completes
+                loadFeed(1, function() { // load 2nd time
+                    newContent = $('.feed').text(); // get 2nd content when 2nd load completes
+                    done(); // the asynchronous function is done
+                });
             });
         });
+
         it('Content changes when new feed loaded', function(done) {
-            newContent = $('.feed').find('h2').first().text();
-            expect(newContent === content).toBeFalsy();
+            loadFeed(0); // display the page in original state
+            expect(newContent).not.toBe(content);
             done();
         });
     });
