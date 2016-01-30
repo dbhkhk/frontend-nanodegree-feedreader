@@ -94,4 +94,13 @@ $(function() {
             done();
         });
     });
+
+    // future test suite about preview window
+    describe('Preview Window', function() {
+        // test that when a feed link is clicked, a preview window is displayed
+        xit('is displayed when a feed link is clicked', function() {
+            $('.entry-link').first().click();
+            expect($('.preview-window').first().hasClass('displayed')).toBeTruthy();
+        });
+    });
 }());
