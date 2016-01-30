@@ -38,21 +38,21 @@ $(function() {
     describe('The menu', function() {
         // test that ensures the menu element is hidden by default.
         it('is hidden by default', function() {
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect($('body').hasClass('menu-hidden')).toBeTruthy();
         });
         // test that ensures the menu changes visibility when the menu icon is clicked.
         it('changes visibility when menu icon is clicked', function() {
             var menuIcon = $('.menu-icon-link');
             menuIcon.click();
-            expect($('body').hasClass('menu-hidden')).toBe(false);
+            expect($('body').hasClass('menu-hidden')).toBeFalsy();
             menuIcon.click();
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect($('body').hasClass('menu-hidden')).toBeTruthy();
         });
         it('is hidden when link in feedList is clicked', function() {
             $('body').toggleClass('menu-hidden');
             var feedList = $('.feed-list');
             feedList.find('a').first().click();
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect($('body').hasClass('menu-hidden')).toBeTruthy();
         });
     });
     // test suite about Initial Entries
@@ -63,9 +63,7 @@ $(function() {
          * loadFeed() is asynchronous so this test involves done() function.
          */
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
         it('At least one feed exists when loaded', function(done) {
             expect($('.feed').find('.entry').length).not.toBe(0);
@@ -86,7 +84,7 @@ $(function() {
         });
         it('Content changes when new feed loaded', function(done) {
             newContent = $('.feed').find('h2').first().text();
-            expect(newContent === content).toBe(false);
+            expect(newContent === content).toBeFalsy();
             done();
         });
     });
