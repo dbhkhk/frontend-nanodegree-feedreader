@@ -7,5 +7,6 @@ In this project I was given a web-based application that reads RSS feeds. The or
 Additionally, I add a future test suite with a pending spec about preview window feature.
 
 # How to open the app
-Click [here](http://dbhkhk.github.io/frontend-nanodegree-feedreader/) to open the app.
+Open index.html in your browser of choice,
+or just click [here](http://dbhkhk.github.io/frontend-nanodegree-feedreader/).
 You can see the test results at the bottom of the page when the tests are done.

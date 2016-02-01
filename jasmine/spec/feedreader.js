@@ -65,9 +65,8 @@ $(function() {
         beforeEach(function(done) {
             loadFeed(0, done);
         });
-        it('At least one feed exists when loaded', function(done) {
+        it('At least one feed exists when loaded', function() {
             expect($('.feed').find('.entry').length).not.toBe(0);
-            done();
         });
     });
     // test suite about New Feed Selection
@@ -89,9 +88,8 @@ $(function() {
             });
         });
 
-        it('Content changes when new feed loaded', function(done) {
+        it('Content changes when new feed loaded', function() {
             expect(newContent).not.toBe(content);
-            done();
         });
     });
 
